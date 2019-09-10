@@ -1,12 +1,12 @@
 <title>crypt</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
-<textarea id="contents" rows="10" cols="100"></textarea>
+<textarea id="contents" rows="10" cols="100" placeholder="暗号化/復号したい文字列を入力"></textarea>
 <br>
-<input id="key" type="password" autocomplete="off" />
+<input id="key" type="password" autocomplete="off" placeholder="キーを入力" />
 <br>
-<button onclick="window.enc()">ENC</button>
-<button onclick="window.dec()">DEC</button>
+<button onclick="window.enc()">暗号化</button>
+<button onclick="window.dec()">復号</button>
 <br><br>
 <pre id="result"></pre>
 
