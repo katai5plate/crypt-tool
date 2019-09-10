@@ -12,6 +12,7 @@
 <script>
  const contents = document.getElementById("contents").value;
  const key = document.getElementById("key").value;
- window.enc = () => CryptoJS.AES.encrypt(contents, key);
- window.dec = () => CryptoJS.enc.Utf8(CryptoJS.AES.decrypt(contents, key));
+ const result = document.getElementById("result");
+ window.enc = () => (result.innerText = CryptoJS.AES.encrypt(contents, key));
+ window.dec = () => (result.innerText = CryptoJS.enc.Utf8(CryptoJS.AES.decrypt(contents, key)));
 </script>
