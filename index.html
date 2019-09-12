@@ -1,12 +1,13 @@
 <title>crypt</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="./endec.js"></script>
 
 <textarea id="contents" rows="10" cols="100" placeholder="暗号化/復号したい文字列を入力"></textarea>
 <br>
 <input id="key" type="password" autocomplete="off" placeholder="キーを入力" />
 <br>
-<button onclick="window.enc()">暗号化</button>
-<button onclick="window.dec()">復号</button>
+<button onclick="window.toEnc()">暗号化</button>
+<button onclick="window.toDec()">復号</button>
 <br><br>
 <pre id="result"></pre>
 
@@ -14,6 +15,6 @@
  const contents = () => document.getElementById("contents").value;
  const key = () => document.getElementById("key").value;
  const result = document.getElementById("result");
- window.enc = () => (result.innerText = CryptoJS.AES.encrypt(contents(), key()).toString());
- window.dec = () => (result.innerText = CryptoJS.AES.decrypt(contents(), key()).toString(CryptoJS.enc.Utf8));
+ window.toEnc = () => (result.innerText = window.enc(contents(), key()));
+ window.toDec = () => (result.innerText = window.dec(contents(), key()));
 </script>
