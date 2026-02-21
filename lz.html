@@ -1,0 +1,35 @@
+<title>crypt</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
+<script src="./endec.js"></script>
+
+<h1>暗号化ツール + LZ-String</h1>
+
+<p>キーは 数字・小文字・大文字 を含む 10 文字以上の物にする事を推奨します。</p>
+<ul>
+ <li>小文字 + 10文字 : 9時間</li>
+ <li>大文字 + 小文字 + 数字 + 8文字 : 13.5時間</li>
+ <li>大文字 + 小文字 + 数字 + 記号 + 8文字 : 14日</li>
+ <strong>
+ <li>大文字 + 小文字 + 数字 + 10文字 : 6年</li>
+ <li>大文字 + 小文字 + 数字 + 記号 + 10文字 : 341年</li>
+ </strong>
+ <li><a href="https://www.dit.co.jp/service/security/report/03.html">※2012年の情報</a></li>
+</ul>
+
+<textarea id="contents" rows="10" cols="100" placeholder="暗号化/復号したい文字列を入力"></textarea>
+<br>
+<input id="key" type="password" autocomplete="off" placeholder="キーを入力" />
+<br>
+<button onclick="window.toEnc()">暗号化</button>
+<button onclick="window.toDec()">復号</button>
+<br><br>
+<pre id="result"></pre>
+
+<script>
+ const contents = () => document.getElementById("contents").value;
+ const key = () => document.getElementById("key").value;
+ const result = document.getElementById("result");
+ window.toEnc = () => (result.innerText = window.enc(contents(), key()));
+ window.toDec = () => (result.innerText = window.dec(contents(), key()));
+</script>
